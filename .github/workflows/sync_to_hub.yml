@@ -21,4 +21,4 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         # CHANGE THE URL BELOW to match your details!
         # Syntax: https://<HF_USERNAME>:$HF_TOKEN@huggingface.co/spaces/<HF_USERNAME>/<SPACE_NAME> main
-        run: git push https://seenivasa:$HF_TOKEN@huggingface.co/spaces/seenivasa/Dream_Designer main
+        run: git push https://seenivasa:$HF_TOKEN@huggingface.co/spaces/seenivasa/Dream_Designer_API main
