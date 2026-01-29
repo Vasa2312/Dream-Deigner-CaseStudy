@@ -1,0 +1,24 @@
+name: Sync to Hugging Face Hub
+on:
+  push:
+    branches: [main]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Download the code from this GitHub repo
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true  # Essential for Machine Learning models!
+
+      # Step 2: Push it to Hugging Face
+      - name: Push to hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        # CHANGE THE URL BELOW to match your details!
+        # Syntax: https://<HF_USERNAME>:$HF_TOKEN@huggingface.co/spaces/<HF_USERNAME>/<SPACE_NAME> main
+        run: git push https://seenivasa:$HF_TOKEN@huggingface.co/spaces/seenivasa/Dream Designer main
